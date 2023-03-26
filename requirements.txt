@@ -2,7 +2,6 @@ altair==4.2.0
 numpy==1.21.5
 pandas==1.4.4
 scikit-learn==1.0.2
-scipy==1.5.2
 streamlit==1.17.0
 tensorflow==2.11.0
 tensorflow-estimator==2.11.0
