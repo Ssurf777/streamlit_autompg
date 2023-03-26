@@ -1,15 +1,15 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import os
-import csv
+#import os
+#import csv
 import tensorflow as tf
-import math
+#import math
 import altair as alt
 from tensorflow.keras import layers
 from tensorflow.keras.layers import Activation
 from tensorflow.keras.utils import get_custom_objects
-from PIL import Image
+#from PIL import Image
 from sklearn.metrics import mean_squared_error
 
 #============================================================================
@@ -144,7 +144,7 @@ def DNN_pred():
     st.altair_chart(chart, use_container_width=True)
 #==============================================================================
 
-image=Image.open("C:\\Users\\ThinkPad\\Desktop\\s：Streamlit\\DNN.jpeg")
+#image=Image.open("C:\\Users\\ThinkPad\\Desktop\\s：Streamlit\\DNN.jpeg")
 with st.sidebar:
     st.header("file path")
     train_in_file=st.file_uploader("Upload Training INPUT Data",type=(["csv"]))
@@ -160,7 +160,7 @@ with tab1:
     col1,col2=st.columns(2)
     with col1:
       st.header("Neural Network Setting")
-      st.image(image, caption='Neural Network')
+      #st.image(image, caption='Neural Network')
       workdir=st.text_input("Please input work directry",'.\\')
       batch_in=st.number_input("Please input BATCH",10,2000,10,step=10)
       epochs_in=st.number_input("Please input EPOCHS",10,2000,100,step=10)
