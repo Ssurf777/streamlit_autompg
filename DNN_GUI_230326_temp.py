@@ -120,18 +120,13 @@ def DNN_pred():
     newmodel=tf.keras.models.load_model(savepath)
     predx=np.loadtxt(pred_in_file,skiprows=0,delimiter=',')
     predy=newmodel.predict(predx)
-    savepredy=workdir+'pred_y.csv'
-    np.savetxt(savepredy,predy,delimiter=',',)
     if yorn == 'yes':
-        y_true=np.loadtxt(true_out_file,skiprows=0,delimiter=',')
-        savetruey=workdir+'true_y.csv'
-        np.savetxt(savetruey,y_true,delimiter=',',)
+        y_true=pd.read_csv(true_out_file, header=None, names=["true"]).values
         rmse = mean_squared_error(y_true,predy, squared=False)
         st.write("R^2=",rmse)
-        df_a=pd.read_csv("true_y.csv", header=None, names=["true"])
-        df_b=pd.read_csv("pred_y.csv", header=None, names=["pred"])
-        #st.write(df_b)
-        scatter = alt.Chart(df_a.merge(df_b, left_index=True, right_index=True)).mark_point().encode(
+        df_b=pd.DataFrame(predy, columns=["pred"])
+        st.write(df_b)
+        scatter = alt.Chart(pd.DataFrame({"true": y_true.squeeze(), "pred": df_b["pred"]})).mark_point().encode(
             x=alt.X('true', scale=alt.Scale(domain=(0, 1))),
             y=alt.Y('pred', scale=alt.Scale(domain=(0, 1)))
         )
@@ -141,7 +136,12 @@ def DNN_pred():
             y=alt.Y('pred', scale=alt.Scale(domain=(0, 1)))
         )
         chart = scatter + line_chart
-    st.altair_chart(chart, use_container_width=True)
+        st.altair_chart(chart, use_container_width=True)
+    else:
+        df_b=pd.DataFrame(predy, columns=["pred"])
+        savepredy=workdir+'pred_y.csv'
+        df_b.to_csv(savepredy, index=False)
+
 #==============================================================================
 
 #image=Image.open("C:\\Users\\ThinkPad\\Desktop\\s：Streamlit\\DNN.jpeg")
