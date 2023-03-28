@@ -116,10 +116,10 @@ def DNN_func():
         return savepath
 #==============================================================================
 def DNN_pred():
-    savepath=workdir+'my_DNN_model'
-    newmodel=tf.keras.models.load_model(savepath)
+    #savepath=workdir+'my_DNN_model'
+    #newmodel=tf.keras.models.load_model(savepath)
     predx=np.loadtxt(pred_in_file,skiprows=0,delimiter=',')
-    predy=newmodel.predict(predx)
+    predy=hist.predict(predx)
     if yorn == 'yes':
         y_true=pd.read_csv(true_out_file, header=None, names=["true"]).values
         rmse = mean_squared_error(y_true,predy, squared=False)
