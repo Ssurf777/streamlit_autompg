@@ -115,7 +115,7 @@ def DNN_func():
         st.line_chart(plotdata,use_container_width=True)
         return savepath
 #==============================================================================
-def DNN_pred():
+def DNN_pred(hist):
     #savepath=workdir+'my_DNN_model'
     #newmodel=tf.keras.models.load_model(savepath)
     predx=np.loadtxt(pred_in_file,skiprows=0,delimiter=',')
@@ -224,6 +224,6 @@ with tab4:
           ('yes','no'))
     if st.button('Pred EXE'):
         st.write('execute Predict!!')
-        DNN_pred()
+        DNN_pred(hist)
     else:
         st.write('waiting')
