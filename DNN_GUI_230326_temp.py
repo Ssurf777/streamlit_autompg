@@ -113,14 +113,12 @@ def DNN_func():
         #np.savetxt("plotl.csv",l,delimiter=',')
         plotdata=pd.DataFrame(ll)
         st.line_chart(plotdata,use_container_width=True)
-        return savepath
+        return model
 #==============================================================================
-def DNN_pred(hist):
-    #savepath=workdir+'my_DNN_model'
-    #newmodel=tf.keras.models.load_model(savepath)
+def DNN_pred(model):
     predx=np.loadtxt(pred_in_file,skiprows=0,delimiter=',')
-    predy=hist.predict(predx)
-    if yorn == 'yes':
+    predy=model.predict(predx)
+    if yorn == '1':
         y_true=pd.read_csv(true_out_file, header=None, names=["true"]).values
         rmse = mean_squared_error(y_true,predy, squared=False)
         st.write("R^2=",rmse)
@@ -139,9 +137,7 @@ def DNN_pred(hist):
         st.altair_chart(chart, use_container_width=True)
     else:
         df_b=pd.DataFrame(predy, columns=["pred"])
-        savepredy=workdir+'pred_y.csv'
-        df_b.to_csv(savepredy, index=False)
-
+        st.write(df_b)
 #==============================================================================
 
 #image=Image.open("C:\\Users\\ThinkPad\\Desktop\\s：Streamlit\\DNN.jpeg")
@@ -155,7 +151,7 @@ with st.sidebar:
     true_out_file=st.file_uploader("Upload True_out INPUT Data",type=(["csv"]))
 
 
-tab1,tab2,tab3,tab4=st.tabs(["DNN setting","DNN check","Training","Predict"])
+tab1,tab2,tab3,tab4=st.tabs(["DNN setting","DNN check","Training&Predict"])
 with tab1:
     col1,col2=st.columns(2)
     with col1:
@@ -213,17 +209,22 @@ with tab2:
         st.write("BATCH_SIZE",batch_in)
 
 with tab3:
-    if st.button('EXE'):
-        st.write('execute DNN Training!!')
-        DNN_func()
-    else:
-        st.write('waiting')
-with tab4:
     yorn = st.selectbox(
-          'select R^2 caluclation',
-          ('yes','no'))
+          'select ["1 Analysis of Training, Prediction, and R2"] ["2 Training and Prediction"] ["3 Training Only"] ',
+         ('1','2','3'))
     if st.button('Pred EXE'):
-        st.write('execute Predict!!')
-        DNN_pred(hist)
+        if yorn=='1':
+            model2 = DNN_func()
+            st.write('execute Predict!!')
+            pred = DNN_pred(model2)
+            #st.write(f'Predicted values: {pred}')
+        elif yorn=='2':
+            model2 = DNN_func()
+            st.write('execute Predict!!')
+            pred = DNN_pred(model2)
+            #st.write(f'Predicted values: {pred}')
+        else:
+            model2 = DNN_func()
+            st.write('execute Predict!!')
     else:
         st.write('waiting')
