@@ -1,2 +1,2 @@
-# streamlit_autompg
+# streamlitを用いたDNNトレーニングと回帰予測アプリ
 regression_prediction_autompg
