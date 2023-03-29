@@ -151,7 +151,7 @@ with st.sidebar:
     true_out_file=st.file_uploader("Upload True_out INPUT Data",type=(["csv"]))
 
 
-tab1,tab2,tab3,tab4=st.tabs(["DNN setting","DNN check","Training&Predict"])
+tab1,tab2,tab3=st.tabs(["DNN setting","DNN check","Training&Predict"])
 with tab1:
     col1,col2=st.columns(2)
     with col1:
