@@ -121,7 +121,7 @@ def DNN_pred(model):
     if yorn == '1':
         y_true=pd.read_csv(true_out_file, header=None, names=["true"]).values
         rmse = mean_squared_error(y_true,predy, squared=False)
-        st.write("R^2=",rmse)
+        st.write("RMSE=",rmse)
         df_b=pd.DataFrame(predy, columns=["pred"])
         st.write(df_b)
         scatter = alt.Chart(pd.DataFrame({"true": y_true.squeeze(), "pred": df_b["pred"]})).mark_point().encode(
