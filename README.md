@@ -10,7 +10,9 @@ Prediction of regression values based on the trained model
 Ability to customize hyperparameters and network architecture
 
 ## **Installation**
-To install the necessary dependencies, run the following command:
+To install the necessary dependencies,
+run the following command:
+
 Copy code
 ~~~python
 pip install -r requirements.txt
@@ -18,6 +20,7 @@ pip install -r requirements.txt
 
 ## **Usage**
 To run the app, execute the following command:
+
 Copy code
 ~~~python
 streamlit run DNN_GUI_230326_temp.py
