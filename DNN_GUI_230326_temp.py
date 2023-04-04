@@ -164,27 +164,27 @@ with tab1:
       in_num=st.number_input("Please input parameter number",1,2000,8,step=1)
       acti1 = st.selectbox(
           'select activation1',
-          ('ReLU','tanh','softmax','linear', 'swish', 'Mish'))
+          ('ReLU','gelu','tanh','softmax','linear', 'swish', 'Mish'))
       hid1_unit_num=st.number_input("Please input units number of Hidden Layer 1 ",1,2000,32,step=1)
       acti2 = st.selectbox(
           'select activation2',
-          ('ReLU','tanh','softmax','linear', 'swish', 'Mish'))
+          ('ReLU','gelu','tanh','softmax','linear', 'swish', 'Mish'))
       hid2_unit_num=st.number_input("Please input units number of Hidden Layer 2 ",1,2000,16,step=1)
       acti3 = st.selectbox(
           'select activation3',
-          ('ReLU','tanh','softmax','linear', 'swish', 'Mish'))
+          ('ReLU','gelu','tanh','softmax','linear', 'swish', 'Mish'))
       hid3_unit_num=st.number_input("Please input units number of Hidden Layer 3 ",1,2000,8,step=1)
       acti4 = st.selectbox(
           'select activation4',
-          ('ReLU','tanh','softmax','linear', 'swish', 'Mish'))
+          ('ReLU','gelu','tanh','softmax','linear', 'swish', 'Mish'))
       hid4_unit_num=st.number_input("Please input units number of Hidden Layer 4 ",1,2000,4,step=1)
       acti5 = st.selectbox(
           'select activation5',
-           ('ReLU','tanh','softmax','linear', 'swish', 'Mish'))
+           ('ReLU','gelu','tanh','softmax','linear', 'swish', 'Mish'))
       hid5_unit_num=st.number_input("Please input units number of Hidden Layer 5 ",1,2000,2,step=1)
       acti6 = st.selectbox(
           'select activation final',
-          ('linear','tanh','softmax','ReLU', 'swish', 'Mish'))
+          ('linear','softmax'))
       out_num=st.number_input("Please output parameter number",1,2000,1,step=1)
 
 with tab2:
