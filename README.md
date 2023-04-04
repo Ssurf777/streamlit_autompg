@@ -28,7 +28,7 @@ streamlit run DNN_GUI_230326_temp.py
 After launching the app, you can upload your training data and customize the hyperparameters and architecture of your DNN. While you cannot save your trained model using the app, you can use it to make regression predictions based on your trained model.
 
 ## **Author**
-This app was developed by T. Shimokawa.
+T. Shimokawa.
 
 ## **Version**
 This app is version 2023.03.26.
