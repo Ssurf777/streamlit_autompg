@@ -210,7 +210,7 @@ with tab2:
 
 with tab3:
     yorn = st.selectbox(
-          'select ["1 Analysis of Training, Prediction, and R2"] ["2 Training and Prediction"] ["3 Training Only"] ',
+          'select ["1 Training, Prediction, and RMSE evaluation"] ["2 Training and Prediction"] ["3 Training Only"] ',
          ('1','2','3'))
     if st.button('Pred EXE'):
         if yorn=='1':
