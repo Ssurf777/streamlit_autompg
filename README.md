@@ -32,3 +32,5 @@ T. Shimokawa.
 
 ## **Version**
 This app is version 2023.03.26.
+
+https://ssurf777-deploy-safetymap-streamlit-map7-r5ibzc.streamlit.app/
